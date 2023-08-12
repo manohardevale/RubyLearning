@@ -86,6 +86,39 @@ str1 = "back"
   # end
 
 
+#=========================================================================================================
+def char_range(in_str,jump_num) 
+  in_str.each_char do |ele|
+    if (ele.ord+jump_num).between?(65,90) || (ele.ord+jump_num).between?(97,122)
+      print "#{(ele.ord+jump_num).chr}"
+    elsif (ele.ord+jump_num) < 65 || (ele.ord+jump_num) > 90 || (ele.ord+jump_num) > 122
+      print "#{(ele.ord+jump_num-26).chr}"
+    end
+  end
+end
+
+char_range("What a string!", 5)
+#=================================================================================
+
+# To print the ciphered string in the same line but not taking spaces into consideration. 
+def ceiser(string, jump_number)
+  string.each_char do |char| 
+    #to check if char is uppercase or lowercase
+    if (char.ord).between?(65,90) || (char.ord).between?(97,122)
+      new_text = (char.ord+jump_number)
+    # to check for the char out of [a..z] and [A..Z]
+    if (new_text) < 65 || new_text > 122 || new_text.between?(90,97)
+      new_text-=26 
+    end 
+     print new_text.chr
+   end
+end
+end
+ceiser("What a string!", 5)
+
+
+#================================================================================
+# taking the spaces into consideration along with small and caps chars 
 
 
 
